@@ -1,23 +1,21 @@
 package com.kedacom.keda.config;
 
 /**
- * @Author:suxiongwei
- * @Description:常量
- * @Date:13:35 2018-01-18
+ * @Description:Constants
  */
 public class Constants {
     /**
-     * 存储当前登录用户id的字段名
+     * Store current user's id field name.
      */
     public static final String CURRENT_USER_ID = "CURRENT_USER_ID";
 
     /**
-     * token有效期（小时）
+     * token expires hour
      */
     public static final int TOKEN_EXPIRES_HOUR = 72;
 
     /**
-     * 存放Authorization的header字段
+     * Store Authorization的header field
      */
     public static final String AUTHORIZATION = "authorization";
 }

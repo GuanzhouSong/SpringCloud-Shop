@@ -6,10 +6,10 @@ import org.springframework.session.data.redis.RedisFlushMode;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 /**
- * 开启spring session支持
+ * Start spring session support
  */
 @Configuration
 @EnableRedisHttpSession(redisFlushMode = RedisFlushMode.IMMEDIATE)
 public class RedisSessionConfig {
-    //Spring Session替换了默认的tomcat httpSession
+    //Spring Session replace default tomcat httpSession
 }

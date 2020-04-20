@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 
 /**
- * 为解决异常：Error creating bean with name 'eurekaAutoServiceRegistration
+ * To solve the exception：Error creating bean with name 'eurekaAutoServiceRegistration
  */
 @Component
 public class FeignBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
