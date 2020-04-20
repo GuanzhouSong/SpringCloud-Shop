@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 
 @EnableZuulProxy
 @SpringCloudApplication
-@EnableFeignClients//开启扫描Spring Cloud Feign客户端的功能
+@EnableFeignClients//Enable scanning Spring Cloud Feign client
 public class ApiGatewayApplication {
 
 	public static void main(String[] args) {

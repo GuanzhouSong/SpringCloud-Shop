@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
- * Zuul过滤器,在实现了自定义过滤器之后，它并不会直接生效，我们还需要为其创建具体的Bean才能启动该过滤器(应用主类中创建)
- * 可定义一些与业务无关的通用逻辑实现对请求的过滤和拦截，比如：签名校验、权限校验、请求限流等功能。
+ * Zuul filter. After implementing self-defined filter, it won't work directly. We need to
+ * construct a Bean to activate it. We can define some general logic that's irrelevant to the
+ * business to implement filter for requests. Example: Signature check, permission check, etc.
  *
  */
 public class AccessFilter extends ZuulFilter{
@@ -19,18 +20,18 @@ public class AccessFilter extends ZuulFilter{
 
     private static final String[] IGNORE_URI = {"/login","/css/","/js/","/img/"};
 
-    //过滤器的类型，它决定过滤器在请求的哪个生命周期中执行。
+    //Type of filter, which decides filter execute in which part of the request's life cycle
     @Override public String filterType() {
-        //pre，代表会在请求被路由之前执行
+        //pre，will execute before requesting router
         return "pre";
     }
 
-    //过滤器的执行顺序
+    //execution order of filter
     @Override public int filterOrder() {
         return 0;
     }
 
-    //判断该过滤器是否需要被执行
+    //Decide whether need the filter
     @Override public boolean shouldFilter() {
         return true;
     }
@@ -40,11 +41,11 @@ public class AccessFilter extends ZuulFilter{
         HttpServletRequest request = ctx.getRequest();
         logger.info("send {} request to {}", request.getMethod(), request.getRequestURL().toString());
 
-        /** 默认用户没有登录 */
+        /** Default: User not login */
         boolean flag = false;
-        /** 获得请求的ServletPath */
+        /** Get request's ServletPath */
         String servletPath = request.getServletPath();
-        /**  判断请求是否需要拦截 */
+        /**  Check whether to filter the request */
         for (String s : IGNORE_URI) {
             if (servletPath.contains(s)) {
                 flag = true;
@@ -54,7 +55,6 @@ public class AccessFilter extends ZuulFilter{
 
         if(!flag){
             Object accessToken = request.getParameter("accessToken");
-            // TODO accessToken 的获取及验证
             accessToken = "test";
 
             if(accessToken == null) {
@@ -65,7 +65,7 @@ public class AccessFilter extends ZuulFilter{
             }
 
             logger.info("accessToken ok");
-            //路由转发
+            //resent by router
             ctx.setSendZuulResponse(true);
             ctx.setResponseStatusCode(200);
             return null;
