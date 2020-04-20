@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * 统一异常处理
+ * Exception handling.
  */
 @ControllerAdvice
 public class ExceptionHandle {
@@ -25,8 +25,8 @@ public class ExceptionHandle {
             MyException myException = (MyException) e;
             return ResultUtil.error(myException.getCode(),myException.getMessage());
         }else{
-            logger.error("系统异常={}",e);
-            return ResultUtil.error(-1,"未知错误");
+            logger.error("System error={}",e);
+            return ResultUtil.error(-1,"Unknown error");
         }
     }
 }
