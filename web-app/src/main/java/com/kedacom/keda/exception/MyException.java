@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 自定义异常对象
+ * Self defined exception class
  */
 public class MyException extends RuntimeException {
 
