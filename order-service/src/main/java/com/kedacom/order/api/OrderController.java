@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
     @Autowired
+    DiscoveryClient discoveryClient;
+
+    @Autowired
     private OrderService orderService;
 
-    @Autowired DiscoveryClient discoveryClient;
-
     @PostMapping("/add")
-    public Boolean addOrder(@RequestBody OrderVo orderVo){
+    public Boolean addOrder(@RequestBody OrderVo orderVo) {
         orderService.save(orderVo);
         return true;
     }

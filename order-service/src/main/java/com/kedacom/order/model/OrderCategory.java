@@ -5,7 +5,8 @@ import java.util.Date;
 
 @Entity
 public class OrderCategory {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "orderId")
@@ -70,7 +71,8 @@ public class OrderCategory {
         this.createTime = createTime;
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "OrderCategory{" + "id=" + id + ", orderId=" + orderId + ", categoryId=" + categoryId + ", num=" + num
                 + ", createTime=" + createTime + '}';
     }

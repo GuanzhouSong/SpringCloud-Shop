@@ -7,7 +7,8 @@ import java.util.Date;
 
 @Entity
 public class Order implements Serializable {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "datetime")
@@ -72,7 +73,8 @@ public class Order implements Serializable {
         this.userId = userId;
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "Order{" + "id=" + id + ", datetime=" + datetime + ", summoney=" + summoney + ", state=" + state
                 + ", userId=" + userId + '}';
     }

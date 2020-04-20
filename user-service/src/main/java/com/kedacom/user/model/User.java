@@ -6,10 +6,11 @@ import java.io.Serializable;
 @Entity
 public class User implements Serializable {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name",length = 5)
+    @Column(name = "name", length = 5)
     private String name;
 
     @Column(name = "password")

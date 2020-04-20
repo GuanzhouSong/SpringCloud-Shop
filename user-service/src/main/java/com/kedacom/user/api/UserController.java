@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.net.URI;
 
@@ -26,23 +25,22 @@ public class UserController {
 
     private Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @Autowired private UserService userService;
-    @Autowired private DiscoveryClient client;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private DiscoveryClient client;
 
     @PostMapping(value = "/login")
-    public User login(@RequestBody User user){
-        //@PathVariable是用来获得请求url中的动态参数的，
-        // 所以该注解只能支持将参数放在请求url的GET提交方式，所以不管你如何进行设置，@PathVariable都是无法支持Post请求的。
-        User u = userService.findByName(user.getName());
-        return u;
+    public User login(@RequestBody User user) {
+        return userService.findByName(user.getName());
     }
 
     @PostMapping(value = "/insertUser")
-    public boolean insertUser(@RequestBody User user){
-        try{
+    public boolean insertUser(@RequestBody User user) {
+        try {
             userService.save(user);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
@@ -69,7 +67,8 @@ public class UserController {
     }
 
     /**
-     * 测试Spring Session
+     * Test Spring Session
+     *
      * @param session
      * @return
      */
@@ -86,16 +85,16 @@ public class UserController {
     }
 
     /**
-     * 测试事务
+     * Test Transactions
+     *
      * @return
      */
     @RequestMapping("/test/testTransactional")
     @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
-    public String testTransactional(){
-        // 创建3条记录
+    public String testTransactional() {
         userService.save(new User("AAA", "123456"));
-        //name长度不能超过5位，会抛出异常，来测试事务是否会回滚
-        userService.save(new User("测试测试测试测试", "123456"));
+        //name no longer than 5, will rollback
+        userService.save(new User("TESTTESTTEST", "123456"));
         userService.save(new User("BBB", "123456"));
         return "成功";
     }
