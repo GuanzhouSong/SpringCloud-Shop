@@ -3,36 +3,34 @@ package com.kedacom.keda.manager;
 import com.kedacom.keda.model.TokenModel;
 
 /**
- * 对Token进行操作的接口
- * @author ScienJus
- * @date 2015/7/31.
+ * Interface to operate token.
  */
 public interface TokenManager {
 
     /**
-     * 创建一个token关联上指定用户
-     * @param userId 指定用户的id
-     * @return 生成的token
+     * Create a token for a particular user.
+     * @param userId user id
+     * @return generated token
      */
     TokenModel createToken(long userId);
 
     /**
-     * 检查token是否有效
+     * Check whether token is effective
      * @param model token
-     * @return 是否有效
+     * @return true or false
      */
     boolean checkToken(TokenModel model);
 
     /**
-     * 从字符串中解析token
-     * @param authentication 加密后的字符串
+     * Analyze token from string
+     * @param authentication authenticated string
      * @return
      */
     TokenModel getToken(String authentication);
 
     /**
-     * 清除token
-     * @param userId 登录用户的id
+     * Delete token
+     * @param userId user id id
      */
     void deleteToken(long userId);
 
