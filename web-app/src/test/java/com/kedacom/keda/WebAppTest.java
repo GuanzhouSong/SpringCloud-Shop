@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * API测试
+ * API Test
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = WebApplication.class)
@@ -41,29 +41,29 @@ public class WebAppTest {
     }
 
     /**
-     * 单元测试，测试用户服务 --> 登录功能
+     * Unit test for user service -> login function
      * @throws Exception
      */
     @Test
     public void testUserLogin() throws Exception {
         RequestBuilder request = null;
-        //路径
+        //path
         request = post("/users/login")
-                //参数
+                //parameters
                 .param("name", "admin")
                 .param("password","123456")
-                //接受的数据类型
+                //accepted data type
                 .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
-                //状态码是否相等
+                //check status code
                 .andExpect(status().isOk())
-                //得到的信息是否与特定字段匹配
+                //Check whether obtained information matches particular fields
                 .andExpect(content().string("{\"code\":0,\"msg\":\"成功\",\"data\":null}"))
-                //输出信息
+                //print info
                 .andDo(print());
 
         /**
-         * 执行后输出：
+         * output after executing：
          * MockHttpServletRequest:
          *       HTTP Method = POST
          *       Request URI = /users/login
@@ -102,18 +102,18 @@ public class WebAppTest {
     }
 
     /**
-     * 测试商品服务--> 获取商品
+     * Test for category service--> Get category
      * @throws Exception
      */
     @Test
     public void testGetCategoryById() throws Exception {
         RequestBuilder request = null;
-        //路径
+        //path
         request = get("/category/introduction/1");
         mvc.perform(request)
-                //状态吗是否相等
+                //check status code
                 .andExpect(status().isOk())
-                //输出信息
+                //print info
                 .andDo(print());
         return;
     }
