@@ -15,22 +15,22 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**
- * 测试Controller，以便于观察Spring Session的特性
+ * Test Controller to observe the feature of Spring Session
  */
 @Controller
 public class CookieController {
     @Autowired FindByIndexNameSessionRepository<? extends ExpiringSession> sessionRepository;
-    //访问http://localhost:8771/test/cookie?browser=chrome可演示出测试效果
-    //而http://localhost:8764/eureka-web/test/cookie?browser=chrome使用服务网关后则不行
+    // Access http://localhost:8771/test/cookie?browser=chrome can display the test
+    // But http://localhost:8764/eureka-web/test/cookie?browser=chrome doesn't work with service gateway
     @RequestMapping("/test/cookie")
     public String cookie(@RequestParam("browser") String browser, HttpServletRequest request, HttpSession session) {
-        //取出session中的browser
+        //get browser from session
         Object sessionBrowser = session.getAttribute("browser");
         if (sessionBrowser == null) {
-            System.out.println("不存在session，设置browser=" + browser);
+            System.out.println("Session doesn't exist，set browser=" + browser);
             session.setAttribute("browser", browser);
         } else {
-            System.out.println("存在session，browser=" + sessionBrowser.toString());
+            System.out.println("Session exists，browser=" + sessionBrowser.toString());
         }
         Cookie[] cookies = request.getCookies();
         if (cookies != null && cookies.length > 0) {

@@ -19,8 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 基于ACCESS TOKEN的进行权限验证
- * 获取和删除 token 的请求地址，在 Restful 设计中其实就对应着登录和退出登录的资源映射
+ * Use ACCESS TOKEN for access authentication check
+ * Get the delete the request address of token，which corresponds to resource projecting of
+ * login and logout in Restful design
  */
 @RestController
 @RequestMapping("/tokens")
@@ -39,11 +40,10 @@ public class TokenController {
 
 
         User u = userService.login(user);
-        if (u == null || !u.getPassword ().equals (user.getPassword())) { // 密码错误
-            // 提示用户名或密码错误
-            return ResultUtil.error(2,"用户名或密码有误");
+        if (u == null || !u.getPassword ().equals (user.getPassword())) { // password error
+            return ResultUtil.error(2,"User name or password error");
         }
-        // 生成一个 token，保存用户登录状态
+        // create a token to store user login status
         TokenModel model = tokenManager.createToken (u.getId ());
         return ResultUtil.success(model);
     }
@@ -60,7 +60,7 @@ public class TokenController {
      */
     @RequestMapping("/test")
     public String test() {
-        return "成功";
+        return "Success";
     }
 
 }

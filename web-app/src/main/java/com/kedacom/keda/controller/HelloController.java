@@ -8,10 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * Created by 苏雄伟 on 2017/12/25.
- */
-
 @Controller
 public class HelloController {
     @RequestMapping("/test")

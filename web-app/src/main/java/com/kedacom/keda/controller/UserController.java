@@ -27,7 +27,7 @@ public class UserController{
     @Autowired CategoryService categoryService;
 
     /**
-     * 用户登录
+     * User login
      * @param user
      * @return
      */
@@ -40,7 +40,7 @@ public class UserController{
             session.setAttribute("userName",u.getName());
             return ResultUtil.success();
         }
-        return ResultUtil.error(2,"用户名或密码有误");
+        return ResultUtil.error(2,"User name or passward error");
     }
 
     @PostMapping("/register")
@@ -49,7 +49,7 @@ public class UserController{
         if(userService.register(user)){
             return ResultUtil.success();
         }else{
-            return ResultUtil.error(2,"注册失败");
+            return ResultUtil.error(2,"Registration error");
         }
     }
 
