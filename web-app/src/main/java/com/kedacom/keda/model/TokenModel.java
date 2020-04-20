@@ -2,12 +2,12 @@ package com.kedacom.keda.model;
 
 public class TokenModel {
     /**
-     * 用户 id
+     * User id
      */
     private long userId;
 
     /**
-     * 随机生成的 uuid
+     * Randomly Generated uuid
      */
     private String token;
 
