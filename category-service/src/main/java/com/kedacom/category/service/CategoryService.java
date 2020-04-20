@@ -11,4 +11,6 @@ public interface CategoryService {
     Category save(Category category);
 
     List<Category> findByName(String name);
+
+    Category decrease(Category category);
 }

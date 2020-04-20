@@ -3,14 +3,15 @@ package com.kedacom.commons.vo;
 import java.math.BigDecimal;
 
 public class OrderVo {
-    private BigDecimal summoney;
+
+    private int num;
 
     private Long categoryId;
 
     private Long userId;
 
-    public OrderVo(BigDecimal summoney, Long categoryId, Long userId) {
-        this.summoney = summoney;
+    public OrderVo(int num, Long categoryId, Long userId) {
+        this.num = num;
         this.categoryId = categoryId;
         this.userId = userId;
     }
@@ -18,12 +19,12 @@ public class OrderVo {
     public OrderVo() {
     }
 
-    public BigDecimal getSummoney() {
-        return summoney;
+    public int getNum() {
+        return num;
     }
 
-    public void setSummoney(BigDecimal summoney) {
-        this.summoney = summoney;
+    public void setNum(int num) {
+        this.num = num;
     }
 
     public Long getCategoryId() {
@@ -44,6 +45,6 @@ public class OrderVo {
 
     @Override
     public String toString() {
-        return "OrderVo{" + "summoney=" + summoney + ", categoryId=" + categoryId + ", userId=" + userId + '}';
+        return "OrderVo{" + "number of item =" + num + ", categoryId=" + categoryId + ", userId=" + userId + '}';
     }
 }

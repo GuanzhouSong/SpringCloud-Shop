@@ -1,10 +1,9 @@
-package com.kedacom.category.repository;
+package com.kedacom.order.repository;
 
-import com.kedacom.category.model.Category;
+import com.kedacom.order.model.Category;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * @Author: guanzhou

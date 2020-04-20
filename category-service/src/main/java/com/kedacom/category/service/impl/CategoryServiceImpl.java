@@ -30,6 +30,16 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public Category decrease(Category category) {
+        Category category1 = findOne(category.getId());
+        if(category1.getStock()<=0) {
+            return null;
+        }
+        category1.setStock(category1.getStock()-1);
+        return categoryRepository.save(category1);
+    }
+
+    @Override
     public List<Category> findByName(String name) {
         return categoryRepository.findByName(name);
     }

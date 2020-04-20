@@ -14,6 +14,9 @@ public class Order implements Serializable {
     @Column(name = "datetime")
     private Date datetime;
 
+    @Column(name = "num")
+    private int num;
+
     @Column(name = "summoney")
     private BigDecimal summoney;
 
@@ -23,14 +26,24 @@ public class Order implements Serializable {
     @Column(name = "user_id")
     private Long userId;
 
+
     public Order() {
     }
 
-    public Order(Date datetime, BigDecimal summoney, int state, Long userId) {
+    public Order(Date datetime, BigDecimal summoney, int state, Long userId, int num) {
         this.datetime = datetime;
         this.summoney = summoney;
         this.state = state;
         this.userId = userId;
+        this.num = num;
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
     }
 
     public Long getId() {

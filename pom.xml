@@ -23,22 +23,7 @@
         <module>commons</module>
         <module>config-server</module>
     </modules>
-    <!-- 设定主仓库，按设定顺序进行查找。 -->
-    <repositories>
-        <repository>
-            <id>repos</id>
-            <name>Repository</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-        </repository>
-    </repositories>
-    <!-- 设定插件仓库 -->
-    <pluginRepositories>
-        <pluginRepository>
-            <id>repos</id>
-            <name>Repository</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-        </pluginRepository>
-    </pluginRepositories>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
@@ -104,6 +89,20 @@
                 <artifactId>commons-collections4</artifactId>
                 <version>4.1</version>
             </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.1.0.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
+
+
 </project>
