@@ -7,11 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * @Author:suxiongwei
- * @Description:分类 仓库
- * @Date:14:44 2017-12-28
+ * @Author: guanzhou
  */
 @Repository
-public interface CategoryRepository extends JpaRepository<Category,Long> {
+public interface CategoryRepository extends JpaRepository<Category, Long> {
     List<Category> findByName(String name);
 }

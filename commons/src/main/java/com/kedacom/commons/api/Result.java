@@ -1,5 +1,8 @@
 package com.kedacom.commons.api;
 
+/**
+ * @author song
+ */
 public class Result<T> {
 
     private Integer code;

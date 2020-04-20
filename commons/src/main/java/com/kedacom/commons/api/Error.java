@@ -1,14 +1,11 @@
 package com.kedacom.commons.api;
 
+
 /**
- * @Author:suxiongwei
- * @Description:资源错误
- * @Date:15:01 2017-12-28
+ * @author song
  */
 public class Error {
-    /**
-     * 自定义错误码
-     */
+
     private int code;
 
     private String message;

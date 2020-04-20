@@ -42,7 +42,8 @@ public class OrderVo {
         this.userId = userId;
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "OrderVo{" + "summoney=" + summoney + ", categoryId=" + categoryId + ", userId=" + userId + '}';
     }
 }

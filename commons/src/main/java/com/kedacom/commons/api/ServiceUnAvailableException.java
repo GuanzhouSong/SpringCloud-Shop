@@ -1,9 +1,8 @@
 package com.kedacom.commons.api;
 
+
 /**
- * @Author:suxiongwei
- * @Description:服务不可用异常
- * @Date:15:02 2017-12-28
+ * @author song
  */
 public class ServiceUnAvailableException extends RuntimeException {
 

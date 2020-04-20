@@ -5,29 +5,24 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
 @Table(name = "category")
 public class Category implements Serializable {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /**
-     * 分类名字
-     */
-    @NotNull @Size(min = 2, max = 20) private String name;
+    @NotNull
+    @Size(min = 2, max = 20)
+    private String name;
 
-    /**
-     * 价格
-     */
+
     @Column(name = "price")
     private BigDecimal price;
 
-    /**
-     * 详情
-     */
+
     @Column(name = "detail")
     private String detail;
 

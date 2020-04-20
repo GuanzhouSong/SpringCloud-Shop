@@ -1,9 +1,8 @@
 package com.kedacom.commons.api;
 
+
 /**
- * @Author:suxiongwei
- * @Description:资源未找到异常
- * @Date:15:01 2017-12-28
+ * @author song
  */
 public class ResourceNotFoundException extends RuntimeException {
 
