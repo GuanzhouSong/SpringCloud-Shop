@@ -8,7 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
 @EnableDiscoveryClient
-@EnableFeignClients//开启扫描Spring Cloud Feign客户端的功能
+@EnableFeignClients//Enable Spring Cloud Feign Client Function
 @SpringBootApplication(exclude={DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
 public class WebApplication {//extends SpringBootServletInitializer
 
