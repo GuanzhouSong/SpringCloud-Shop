@@ -34,10 +34,10 @@ public class HttpAspect {
         //ip
         logger.info("ip={}",request.getRemoteAddr());
 
-        //类方法
+        //method
         logger.info("class_method={}",joinPoint.getSignature().getDeclaringTypeName() + "," + joinPoint.getSignature().getName());
 
-        //参数
+        //parameter
         logger.info("args={}",joinPoint.getArgs());
 
         logger.info("------Before------");
