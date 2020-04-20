@@ -6,7 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 在Controller的方法参数中使用此注解，该方法在映射时会注入当前登录的User对象
+ * Use this annotation in the method of Controller. This method will enter current logged user
+ * object when projecting.
  */
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)
